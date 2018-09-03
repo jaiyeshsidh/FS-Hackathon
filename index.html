@@ -68,7 +68,7 @@
               <a class="nav-link rounded js-scroll-trigger" href="#about">About Hack</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link rounded js-scroll-trigger register-now" disabled>Registration Closed</a>
+                <a class="nav-link rounded js-scroll-trigger register-now"  data-keyboard="true" data-toggle="modal" data-target="#regis">Register Now</a>
               </li>
             <li class="nav-item ">
               <a class="nav-link rounded js-scroll-trigger" href="#prizes">Prizes</a>
@@ -103,7 +103,7 @@
 
     <!-- Bottom Mobile Register Button Fix -->
     <div class="fix-register-btn-mob centered">
-      <a class="nav-link rounded js-scroll-trigger register-now" disabled>Registration Closed</a>
+      <a class="nav-link rounded js-scroll-trigger register-now" data-keyboard="true" data-toggle="modal" data-target="#regis">Register Now</a>
     </div>
 
     <!-- Action Bar -->
@@ -123,7 +123,7 @@
               </div>
               <div class="col-sm-4 text-right" style="border:0;">
                   <p>Hackathon Ends on</p>
-                  <h2>29 August 2018</h2>
+                  <h2>01 September 2018</h2>
               </div>
             </div>
         </div>
@@ -136,12 +136,14 @@
         <div class="row">
             <div class="col-sm-12">
               <h2>Think Local  Hack Global</h2>
-              <button class="submit-bar" data-keyboard="true"  type="button" disabled>Registration Closed</button>
+              <button class="submit-bar" type="button" data-keyboard="true" data-toggle="modal" data-target="#regis">Register Now</button>
               <img src="img/down-arrow.svg" class="arrow flip">
             </div>
         </div>
       </div>
     </section>
+
+    
 
     <!-- About Section -->
     <section class="about" id="about">
@@ -245,6 +247,136 @@
           </div>
         </div>
       </div>
+  </div>
+
+  <!-- Fixed Modal -->
+  <div class="modal fade" id="regis" tabindex='-1'>
+    <div class="modal-dialog modal-dialog-centered">
+        
+      <div class="modal-content">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <!-- Modal body -->
+        <div class="modal-body">
+          <h2>Your Registration Profile</h2>
+          <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ultricies lacus vitae ipsum interdum, et efficitur lectus dictum. Etiam id nibh eget ipsum laoreet cursus et sit amet velit. Proin laoreet lacus id fringilla imperdiet. Pellentesque tempor dictum quam et tristique. Nulla dapibus ligula risus, ac lobortis ex suscipit in.</p> -->
+          <form action="registration.php" method="POST" onsubmit="return checkCheckBox(this)">
+		  <input type="hidden" name="edit" value="y">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="">Full Name <span style="color:red;">*</span></label>
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Enter your Full Name" required>
+                  <!-- <small id="emailHelp" class="form-text text-muted">* Error Message</small> -->
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="">Mobile Number <span style="color:red;">*</span></label>
+                  <input type="number" class="form-control" id="phone" name="phone" placeholder="Enter your Mobile Number" required>
+                  <!-- <small id="emailHelp" class="form-text text-muted">* Error Message</small> -->
+                </div>   
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label for="">Email ID <span style="color:red;">*</span></label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Enter your valid Email ID" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="">Current Location <span style="color:red;">*</span></label>
+                  <input type="text" class="form-control" id="location" name="location" placeholder="Enter your Current Location" required> 
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="">Student / StartUp / Occupation <span style="color:red;">*</span></label>
+                  <input type="text" class="form-control" id="occupation" name="occupation" placeholder="Enter your Occupation" required>
+                </div>   
+              </div>
+            </div>
+            <h2 style="margin-top:40px;">Hackathon Profile</h2>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label for="">Team Name <span style="color:red;">*</span></label>
+                  <input type="text" class="form-control" id="nameOfTeam" name="nameOfTeam" placeholder="Enter the Team Name" required>
+                  <p class="info-label">Your Github Repository should be in format : FSHackathon-'Team_Name'.</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group" style="margin-bottom: -10px;">
+                  <label for="">Select any one Problem Statement <span style="color:red;">*</span></label>
+                </div>
+                  <ul>
+                    <li>
+                      <input type="radio" id="f-option" value="1" name="problem" checked required>
+                      <label for="f-option">Amazon Alexa</label>
+                      <div class="check"></div>
+                    </li>
+                    <li>
+                      <input type="radio" id="s-option" name="problem" value="2" required>
+                      <label for="s-option">IndiGO</label>
+                      <div class="check"><div class="inside"></div></div>
+                    </li>
+                    <li>
+                      <input type="radio" id="t-option" name="problem" value="3" required>
+                      <label for="t-option">Aries Communication</label>
+                      <div class="check"><div class="inside"></div></div>
+                    </li>
+                  </ul>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="">Name Team Member 1 <span style="color:red;">*</span></label>
+          <input type="text" class="form-control" id="tmFirst" name="tmFirst" placeholder="Enter the Name of Team Member 1" required>
+                  </div>   
+                </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="">Name Team Member 2 </label>
+                  <input type="text" class="form-control" id="tmSecond" name="tmSecond" placeholder="Enter the Name of Team Member 2">
+                </div>   
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="">Name Team Member 3 </label>
+                  <input type="text" class="form-control" id="tmThird" name="tmThird" placeholder="Enter the Name of Team Member 3">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="">Name Team Member 4 </label>
+                  <input type="text" class="form-control" id="tmFourth" name="tmFourth" placeholder="Enter the Name of Team Member 4">
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label for="">Your Github Profile URL <span style="color:red;">*</span></label>
+                  <input type="text" class="form-control" id="githubProfile" name="githubProfile" placeholder="Enter the Github profile URL" required>
+                </div>   
+              </div>
+            </div>
+
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" value="0" name="agree" required>
+              <label class="form-check-label" for="exampleCheck1">By clicking Submit, you agree to our Terms & Condition and that you have entred you details truly and read our Data Use Policy.</label>
+            </div>
+            <button type="submit" class="button-submit btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Contact Us Modal -->
